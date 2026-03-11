@@ -17,6 +17,9 @@
             <li><a href="#projects">Projeler</a></li>
             <li><a href="#experience">Eğitim</a></li>
             <li><a href="#contact">İletişim</a></li>
+            <button id="theme-toggle" style="cursor:pointer; padding: 5px 10px; border-radius: 15px; border: 1px solid var(--nav-link-color); background: transparent; color: var(--text-color);">
+  🌙 Mod Değiştir
+</button>
         </ul>
     </nav>
 
@@ -178,9 +181,36 @@
             <p>Tasarım & Kod — YMS</p>
         </div>
     </footer>
+    <script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme');
+
+  // Sayfa yüklendiğinde hafızadaki temayı kontrol et
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'light') {
+      toggleBtn.textContent = '☀️ Mod Değiştir';
+    }
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggleBtn.textContent = '🌙 Mod Değiştir';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+      toggleBtn.textContent = '☀️ Mod Değiştir';
+    }
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
