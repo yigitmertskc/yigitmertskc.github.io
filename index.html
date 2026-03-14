@@ -17,9 +17,7 @@
             <li><a href="#projects">Projeler</a></li>
             <li><a href="#experience">Eğitim</a></li>
             <li><a href="#contact">İletişim</a></li>
-            <button id="theme-toggle" style="cursor:pointer; padding: 5px 10px; border-radius: 15px; border: 1px solid var(--nav-link-color); background: transparent; color: var(--text-color);">
-  🌙 Mod Değiştir
-</button>
+            <button id="theme-toggle">🌙 Mod Değiştir</button>
         </ul>
     </nav>
 
@@ -58,9 +56,7 @@
         </div>
         <div class="about-content">
             <h3 class="big-heading">Modern teknolojilerle, <span>ölçeklenebilir çözümler</span> üreten bir mühendis adayı.</h3>
-            
             <p>Ankara Üniversitesi'nde yazılım mühendisliği eğitimime devam ederken, teorik bilgimi bulut sistemleri ve modern web mimarileri üzerinde pratik projelere dönüştürüyorum. Temiz kod (clean code) prensiplerine ve yenilikçi teknolojilere odaklanarak, 2026 yaz dönemi için kendimi geliştirebileceğim ve değer katabileceğim bir staj fırsatı arıyorum.</p>
-            
             <p>Ekran başından kalktığım zamanlarda ise video oyun dünyasında vakit geçirmeyi ve otomotiv sektöründeki yazılım gelişmelerini, mekanik ve estetik açılardan incelemeyi seviyorum.</p>
             
             <div class="about-grid">
@@ -76,7 +72,6 @@
             <span class="num">02</span>
             <h2>Yetenekler & Teknolojiler</h2>
         </div>
-        
         <div class="skills-grid">
             <div class="skill-card">
                 <h3>🎨 Frontend</h3>
@@ -87,7 +82,6 @@
                     <li><i class="devicon-html5-plain colored"></i> HTML / CSS</li>
                 </ul>
             </div>
-
             <div class="skill-card">
                 <h3>⚙️ Backend & Veritabanı</h3>
                 <ul class="skill-list">
@@ -96,7 +90,6 @@
                     <li><i class="devicon-bash-plain colored"></i> ER / EER Modelleme</li>
                 </ul>
             </div>
-
             <div class="skill-card">
                 <h3>🛠️ DevOps & Araçlar</h3>
                 <ul class="skill-list">
@@ -116,11 +109,8 @@
         </div>
 
         <div class="projects-grid">
-            
-            <a href="#" class="project-card">
-                <div class="project-header">
-                    <span class="project-badge">// Sistem Mimarisi</span>
-                </div>
+            <div class="project-card">
+                <span class="project-badge">// Sistem Mimarisi</span>
                 <h3>Bulut Tabanlı Ağ Trafiği İzleme Sistemi</h3>
                 <p>Bulut tabanlı ağ trafiğini gerçek zamanlı izlemek ve analiz etmek için geliştirilen sistemde Log Toplama Pipeline'ının tasarımı ve entegrasyonu.</p>
                 <div class="project-tech">
@@ -128,21 +118,20 @@
                     <span class="tech-tag">Beats</span>
                     <span class="tech-tag">Logstash</span>
                 </div>
-            </a>
+                <a href="#" class="project-link">Projeyi İncele →</a>
+            </div>
 
-            <a href="#" class="project-card">
-                <div class="project-header">
-                    <span class="project-badge">// Veritabanı & Backend</span>
-                </div>
+            <div class="project-card">
+                <span class="project-badge">// Veritabanı & Backend</span>
                 <h3>Kapsamlı Veritabanı Yönetim Sistemi</h3>
                 <p>Karmaşık veri setleri için ER ve EER diyagramlarının tasarlanması, bu modellerin optimize edilmiş ilişkisel SQL tablolarına dönüştürülmesi süreçleri.</p>
                 <div class="project-tech">
                     <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">Veritabanı Tasarımı</span>
+                    <span class="tech-tag">PostgreSQL</span>
                     <span class="tech-tag">ER/EER Modelleme</span>
                 </div>
-            </a>
-
+                <a href="#" class="project-link">Projeyi İncele →</a>
+            </div>
         </div>
     </section>
 
@@ -151,7 +140,6 @@
             <span class="num">04</span>
             <h2>Eğitim & Deneyim</h2>
         </div>
-
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-date">2026 — Günümüz</div>
@@ -164,10 +152,6 @@
 
     <section id="contact" class="container contact-section">
         <h2>Birlikte<br>çalışalım.</h2>
-        <p style="color: #a1a1aa; margin-bottom: 30px; font-size: 1.1rem; max-width: 500px;">
-            2026 yaz stajı, proje fikri veya iş birliği teklifleri için iletişime geçmekten çekinmeyin.
-        </p>
-        
         <div class="contact-links">
             <a href="mailto:yigitmertsakca@gmail.com">yigitmertsakca@gmail.com</a>
             <a href="https://github.com/yigitmertskc" target="_blank">github.com/yigitmertskc</a>
@@ -181,40 +165,27 @@
             <p>Tasarım & Kod — YMS</p>
         </div>
     </footer>
+
     <script>
-  const toggleBtn = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
 
-  // Sayfa yüklendiğinde hafızadaki temayı kontrol et
-  if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'light') {
-      toggleBtn.textContent = '☀️ Mod Değiştir';
-    }
-  }
+        // Sayfa yüklendiğinde hafızadaki temayı kontrol et
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        toggleBtn.textContent = savedTheme === 'light' ? '☀️ Mod Değiştir' : '🌙 Mod Değiştir';
 
-  toggleBtn.addEventListener('click', () => {
-    let theme = document.documentElement.getAttribute('data-theme');
-    
-    if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-      toggleBtn.textContent = '🌙 Mod Değiştir';
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-      toggleBtn.textContent = '☀️ Mod Değiştir';
-    }
-  });
-</script>
-
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggleBtn.textContent = newTheme === 'light' ? '☀️ Mod Değiştir' : '🌙 Mod Değiştir';
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
