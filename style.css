@@ -1,30 +1,32 @@
-/* --- Premium Dark Theme CSS --- */
+/* --- Premium Adaptive Theme CSS --- */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* Varsayılan Karanlık Tema */
+/* --- RENK DEĞİŞKENLERİ (SİSTEMİN KALBİ) --- */
 :root {
-  --bg-color: #0b0b0b; /* Mevcut arka plan rengin */
-  --text-color: #ffffff;
-  --nav-link-color: #cccccc;
+    /* Karanlık Tema (Varsayılan) */
+    --bg-color: #0b0b0b;
+    --surface-color: #161616;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --accent-color: #3b82f6; /* Modern mavi */
+    --accent-glow: rgba(59, 130, 246, 0.2);
+    --border-color: #27272a;
+    --nav-bg: rgba(11, 11, 11, 0.8);
 }
 
-/* Aydınlık Tema */
 [data-theme='light'] {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --nav-link-color: #444444;
+    /* Aydınlık Tema */
+    --bg-color: #ffffff;
+    --surface-color: #f4f4f5;
+    --text-main: #09090b;
+    --text-muted: #71717a;
+    --accent-color: #2563eb;
+    --accent-glow: rgba(37, 99, 235, 0.1);
+    --border-color: #e4e4e7;
+    --nav-bg: rgba(255, 255, 255, 0.8);
 }
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Menüdeki yazıların renklerini de değişken yapmayı unutma */
-nav a {
-    color: var(--nav-link-color);
-}
+/* --- GENEL AYARLAR --- */
 * {
     margin: 0;
     padding: 0;
@@ -41,13 +43,15 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.7;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-main);
 }
 
-/* Navigasyon (Üst Menü) */
+/* --- NAVİGASYON (Navbar Sorunu Burada Çözüldü) --- */
 .navbar {
     position: fixed;
     top: 0;
@@ -56,16 +60,19 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(9, 9, 11, 0.8);
-    backdrop-filter: blur(10px);
+    background: var(--nav-bg); /* Sabit renk yerine değişken kullanıldı */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
+    transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -1px;
+    color: var(--text-main);
 }
 
 .logo span {
@@ -76,6 +83,7 @@ h1, h2, h3, h4 {
     display: flex;
     list-style: none;
     gap: 30px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -83,47 +91,53 @@ h1, h2, h3, h4 {
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--text-main);
 }
 
-/* Genel Konteyner */
+/* Mod Değiştir Butonu CSS */
+#theme-toggle {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+#theme-toggle:hover {
+    border-color: var(--accent-color);
+    background: var(--surface-color);
+}
+
+/* --- HERO BÖLÜMÜ --- */
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 100px 20px;
 }
 
-/* Hero (Giriş) Bölümü */
 #hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 20px;
-    margin-top: 40px;
-}
-
-.hero-content {
-    max-width: 800px;
-}
-
-.subtitle {
-    color: var(--accent-color);
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    padding: 100px 20px 0;
 }
 
 .hero-title {
-    font-size: 5rem;
-    line-height: 1.1;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1;
     font-weight: 700;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
     margin-bottom: 30px;
 }
 
@@ -138,212 +152,19 @@ h1, h2, h3, h4 {
     margin-bottom: 40px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 60px;
-}
-
-.btn {
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.btn-primary {
-    background-color: var(--text-main);
-    color: var(--bg-color);
-}
-
-.btn-primary:hover {
-    background-color: #d4d4d8;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-    border-color: var(--text-muted);
-    background-color: var(--surface-color);
-}
-
-/* İstatistikler */
-.stats-container {
-    display: flex;
-    gap: 50px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border-color);
-}
-
-.stat-item h3 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--text-main);
-}
-
-.stat-item p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* Bölüm Başlıkları (01, 02 vb.) */
-.section-title {
-    margin-bottom: 50px;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.section-title .num {
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    font-weight: 600;
-    font-family: 'Space Grotesk', sans-serif;
-    margin-top: 5px;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    letter-spacing: -1px;
-}
-
-/* Hakkımda Bölümü */
-.big-heading {
-    font-size: 2rem;
-    line-height: 1.3;
-    margin-bottom: 30px;
-    font-weight: 400;
-}
-
-.big-heading span {
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-.about-content p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-
-.about-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-muted);
-}
-
-.about-grid strong {
-    color: var(--text-main);
-}
-
-/* Yetenekler (Grid Kutuları) */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.skill-card {
+/* --- KARTLAR VE DİĞERLERİ --- */
+.skill-card, .project-card {
     background: var(--surface-color);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 30px;
     transition: all 0.3s ease;
 }
 
 .skill-card:hover {
     border-color: var(--accent-color);
-    box-shadow: 0 0 20px var(--accent-glow);
+    box-shadow: 0 10px 30px var(--accent-glow);
     transform: translateY(-5px);
-}
-
-.skill-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: var(--text-main);
-}
-
-.skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.skill-list li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.skill-list i {
-    font-size: 1.5rem;
-}
-
-/* Projeler Kartları */
-.projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 40px;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.project-card:hover {
-    border-color: var(--text-muted);
-}
-
-.project-header {
-    margin-bottom: 20px;
-}
-
-.project-badge {
-    color: var(--accent-color);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.project-card h3 {
-    font-size: 1.8rem;
-    color: var(--text-main);
-    margin-bottom: 15px;
-}
-
-.project-card p {
-    color: var(--text-muted);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-
-.project-tech {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
 }
 
 .tech-tag {
@@ -355,101 +176,21 @@ h1, h2, h3, h4 {
     color: var(--text-muted);
 }
 
-/* Eğitim (Timeline Tasarımı) */
 .timeline {
     border-left: 2px solid var(--border-color);
     padding-left: 30px;
-    margin-left: 10px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -37px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    border: 3px solid var(--bg-color);
-}
-
-.timeline-date {
-    font-size: 0.9rem;
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.timeline-title {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-}
-
-.timeline-subtitle {
-    color: var(--text-main);
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-}
-
-.timeline-desc {
-    color: var(--text-muted);
-    font-size: 1rem;
-}
-
-/* İletişim ve Footer */
-.contact-section {
-    padding: 100px 20px;
-    border-top: 1px solid var(--border-color);
-    margin-top: 50px;
-}
-
-.contact-section h2 {
-    font-size: 4rem;
-    letter-spacing: -2px;
-    line-height: 1.1;
-    margin-bottom: 40px;
-}
-
-.contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-links a {
-    color: var(--text-main);
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s;
-    font-weight: 500;
-}
-
-.contact-links a:hover {
-    color: var(--accent-color);
 }
 
 .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 20px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
     border-top: 1px solid var(--border-color);
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-muted);
 }
 
-/* Mobil Uyum (Responsive) */
+/* --- MOBİL UYUMLULUK --- */
 @media (max-width: 768px) {
-    .hero-title { font-size: 3.5rem; }
-    .hero-buttons { flex-direction: column; }
-    .stats-container { flex-direction: column; gap: 20px; }
-    .nav-links { display: none; }
-    .contact-section h2 { font-size: 2.5rem; }
+    .navbar { padding: 15px 5%; }
+    .nav-links { display: none; } /* Mobil menü ayrıca eklenmeli */
+    .hero-title { font-size: 3rem; }
 }
-
-
