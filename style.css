@@ -1,14 +1,13 @@
 /* --- Premium Adaptive Theme CSS --- */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* --- RENK DEĞİŞKENLERİ (SİSTEMİN KALBİ) --- */
+/* --- 1. RENK DEĞİŞKENLERİ --- */
 :root {
-    /* Karanlık Tema (Varsayılan) */
     --bg-color: #0b0b0b;
     --surface-color: #161616;
     --text-main: #ffffff;
     --text-muted: #a1a1aa;
-    --accent-color: #3b82f6; /* Modern mavi */
+    --accent-color: #3b82f6;
     --accent-glow: rgba(59, 130, 246, 0.2);
     --border-color: #27272a;
     --nav-bg: rgba(11, 11, 11, 0.8);
@@ -25,7 +24,7 @@
     --nav-bg: rgba(255, 255, 255, 0.8);
 }
 
-/* --- GENEL AYARLAR --- */
+/* --- 2. GENEL AYARLAR --- */
 * {
     margin: 0;
     padding: 0;
@@ -50,7 +49,7 @@ h1, h2, h3, h4 {
     color: var(--text-main);
 }
 
-/* --- NAVİGASYON (Navbar Sorunu Burada Çözüldü) --- */
+/* --- 3. NAVBAR --- */
 .navbar {
     position: fixed;
     top: 0;
@@ -59,7 +58,7 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--nav-bg); /* Sabit renk yerine değişken kullanıldı */
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
@@ -70,13 +69,10 @@ h1, h2, h3, h4 {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -1px;
     color: var(--text-main);
 }
 
-.logo span {
-    color: var(--accent-color);
-}
+.logo span { color: var(--accent-color); }
 
 .nav-links {
     display: flex;
@@ -93,11 +89,8 @@ h1, h2, h3, h4 {
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--text-main);
-}
+.nav-links a:hover { color: var(--text-main); }
 
-/* Mod Değiştir Butonu CSS */
 #theme-toggle {
     cursor: pointer;
     background: transparent;
@@ -105,53 +98,27 @@ h1, h2, h3, h4 {
     color: var(--text-main);
     padding: 8px 16px;
     border-radius: 20px;
-    font-family: inherit;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
     transition: all 0.3s;
 }
 
-#theme-toggle:hover {
-    border-color: var(--accent-color);
-    background: var(--surface-color);
-}
-
-/* --- HERO BÖLÜMÜ --- */
+/* --- 4. KONTEYNER VE HERO --- */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 100px 20px;
 }
 
-#hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 100px 20px 0;
-}
+#hero { min-height: 100vh; display: flex; align-items: center; }
 
 .hero-title {
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 1;
-    font-weight: 700;
-    letter-spacing: -3px;
     margin-bottom: 30px;
 }
 
-.hero-title span {
-    color: var(--text-muted);
-}
+.hero-title span { color: var(--text-muted); }
 
-.hero-desc {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin-bottom: 40px;
-}
-
-/* --- KARTLAR VE DİĞERLERİ --- */
+/* --- 5. KARTLAR VE PROJELER --- */
 .skill-card, .project-card {
     background: var(--surface-color);
     border: 1px solid var(--border-color);
@@ -160,7 +127,7 @@ h1, h2, h3, h4 {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* İçeriklerin arasını açar */
+    gap: 15px;
 }
 
 .skill-card:hover, .project-card:hover {
@@ -169,23 +136,16 @@ h1, h2, h3, h4 {
     transform: translateY(-5px);
 }
 
-/* Proje Linkini Butona Çevir */
 .project-link {
     display: inline-block;
     background: var(--accent-color);
-    color: #ffffff !important; /* Yazı her zaman beyaz */
+    color: #ffffff !important;
     padding: 10px 20px;
     border-radius: 8px;
     text-decoration: none !important;
     font-weight: 600;
     width: fit-content;
-    margin-top: 10px;
     transition: transform 0.2s;
-}
-
-.project-link:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
 }
 
 .tech-tag {
@@ -195,12 +155,40 @@ h1, h2, h3, h4 {
     border-radius: 20px;
     font-size: 0.8rem;
     color: var(--text-muted);
+}
+
+/* --- 6. İLETİŞİM BUTONLARI (YENİ) --- */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-main) !important;
+    text-decoration: none !important;
     font-weight: 500;
+    transition: all 0.3s ease;
 }
-.timeline {
-    border-left: 2px solid var(--border-color);
-    padding-left: 30px;
+
+.contact-btn:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--accent-glow);
 }
+
+.contact-btn i { font-size: 1.2rem; }
+
+/* --- 7. DİĞER --- */
+.timeline { border-left: 2px solid var(--border-color); padding-left: 30px; }
 
 .footer-bottom {
     border-top: 1px solid var(--border-color);
@@ -209,9 +197,7 @@ h1, h2, h3, h4 {
     color: var(--text-muted);
 }
 
-/* --- MOBİL UYUMLULUK --- */
 @media (max-width: 768px) {
-    .navbar { padding: 15px 5%; }
-    .nav-links { display: none; } /* Mobil menü ayrıca eklenmeli */
+    .nav-links { display: none; }
     .hero-title { font-size: 3rem; }
 }
