@@ -15,7 +15,6 @@
 }
 
 [data-theme='light'] {
-    /* Aydınlık Tema */
     --bg-color: #ffffff;
     --surface-color: #f4f4f5;
     --text-main: #09090b;
