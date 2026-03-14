@@ -56,13 +56,12 @@
         </div>
         <div class="about-content">
             <h3 class="big-heading">Modern teknolojilerle, <span>ölçeklenebilir çözümler</span> üreten bir mühendis adayı.</h3>
-            <p>Ankara Üniversitesi'nde yazılım mühendisliği eğitimime devam ederken, teorik bilgimi bulut sistemleri ve modern web mimarileri üzerinde pratik projelere dönüştürüyorum. Temiz kod (clean code) prensiplerine ve yenilikçi teknolojilere odaklanarak, 2026 yaz dönemi için kendimi geliştirebileceğim ve değer katabileceğim bir staj fırsatı arıyorum.</p>
-            <p>Ekran başından kalktığım zamanlarda ise video oyun dünyasında vakit geçirmeyi ve otomotiv sektöründeki yazılım gelişmelerini, mekanik ve estetik açılardan incelemeyi seviyorum.</p>
+            <p>Ankara Üniversitesi'nde yazılım mühendisliği eğitimime devam ederken, teorik bilgimi bulut sistemleri ve modern web mimarileri üzerinde pratik projelere dönüştürüyorum. Temiz kod (clean code) prensiplerine ve yenilikçi teknolojilere odaklanarak, 2026 yaz dönemi için staj fırsatı arıyorum.</p>
             
             <div class="about-grid">
                 <div class="about-info"><strong>Üniversite:</strong> Ankara Üniversitesi (3. Sınıf)</div>
                 <div class="about-info"><strong>Uzmanlık:</strong> Frontend · Backend · Bulut Sistemleri</div>
-                <div class="about-info"><strong>Durum:</strong> 2026 Yaz Stajı / Proje için müsait</div>
+                <div class="about-info"><strong>Durum:</strong> 2026 Yaz Stajı için müsait</div>
             </div>
         </div>
     </section>
@@ -93,7 +92,7 @@
             <div class="skill-card">
                 <h3>🛠️ DevOps & Araçlar</h3>
                 <ul class="skill-list">
-                    <li><i class="devicon-elasticsearch-plain colored"></i> ELK Stack (Logstash)</li>
+                    <li><i class="devicon-elasticsearch-plain colored"></i> ELK Stack</li>
                     <li><i class="devicon-git-plain colored"></i> Git</li>
                     <li><i class="devicon-github-original colored"></i> GitHub</li>
                     <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
@@ -112,7 +111,7 @@
             <div class="project-card">
                 <span class="project-badge">// Sistem Mimarisi</span>
                 <h3>Bulut Tabanlı Ağ Trafiği İzleme Sistemi</h3>
-                <p>Bulut tabanlı ağ trafiğini gerçek zamanlı izlemek ve analiz etmek için geliştirilen sistemde Log Toplama Pipeline'ının tasarımı ve entegrasyonu.</p>
+                <p>Bulut tabanlı ağ trafiğini gerçek zamanlı izlemek ve analiz etmek için Log Toplama Pipeline tasarımı.</p>
                 <div class="project-tech">
                     <span class="tech-tag">ELK Stack</span>
                     <span class="tech-tag">Beats</span>
@@ -124,28 +123,13 @@
             <div class="project-card">
                 <span class="project-badge">// Veritabanı & Backend</span>
                 <h3>Kapsamlı Veritabanı Yönetim Sistemi</h3>
-                <p>Karmaşık veri setleri için ER ve EER diyagramlarının tasarlanması, bu modellerin optimize edilmiş ilişkisel SQL tablolarına dönüştürülmesi süreçleri.</p>
+                <p>Karmaşık veri setleri için ER/EER diyagramlarının optimize edilmiş SQL tablolarına dönüştürülmesi.</p>
                 <div class="project-tech">
                     <span class="tech-tag">SQL</span>
                     <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">ER/EER Modelleme</span>
+                    <span class="tech-tag">Modelleme</span>
                 </div>
                 <a href="#" class="project-link">Projeyi İncele →</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="container">
-        <div class="section-title">
-            <span class="num">04</span>
-            <h2>Eğitim & Deneyim</h2>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">2026 — Günümüz</div>
-                <h3 class="timeline-title">Yazılım Mühendisliği</h3>
-                <div class="timeline-subtitle">Ankara Üniversitesi · Lisans · 3. Sınıf</div>
-                <p class="timeline-desc">Algoritmalar, veri yapıları, yazılım mimarisi, veritabanı yönetimi ve modern yazılım süreçleri üzerine hem teorik hem uygulamalı eğitim.</p>
             </div>
         </div>
     </section>
@@ -153,9 +137,15 @@
     <section id="contact" class="container contact-section">
         <h2>Birlikte<br>çalışalım.</h2>
         <div class="contact-links">
-            <a href="mailto:yigitmertsakca@gmail.com">yigitmertsakca@gmail.com</a>
-            <a href="https://github.com/yigitmertskc" target="_blank">github.com/yigitmertskc</a>
-            <a href="https://linkedin.com/in/yigit-mert-sakca-222a0b2a6" target="_blank">LinkedIn Profilim</a>
+            <a href="mailto:yigitmertsakca@gmail.com" class="contact-btn">
+                <i class="devicon-google-plain"></i> yigitmertsakca@gmail.com
+            </a>
+            <a href="https://github.com/yigitmertskc" target="_blank" class="contact-btn">
+                <i class="devicon-github-original"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/yigit-mert-sakca-222a0b2a6" target="_blank" class="contact-btn">
+                <i class="devicon-linkedin-plain"></i> LinkedIn
+            </a>
         </div>
     </section>
 
@@ -170,7 +160,6 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
 
-        // Sayfa yüklendiğinde hafızadaki temayı kontrol et
         const savedTheme = localStorage.getItem('theme') || 'dark';
         htmlElement.setAttribute('data-theme', savedTheme);
         toggleBtn.textContent = savedTheme === 'light' ? '☀️ Mod Değiştir' : '🌙 Mod Değiştir';
@@ -186,8 +175,4 @@
     </script>
 </body>
 </html>
-
-
-
-
 
